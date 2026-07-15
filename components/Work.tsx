@@ -109,8 +109,20 @@ const projects = [
 
 type Tab = "projects" | "certificates" | "techstack";
 
+type Cert = { name: string; src: string };
+
+const certImages: Cert[] = [
+  { name: "C++ Essentials 1", src: "/images/certificates/cpp-essentials-1.png" },
+  { name: "Certificate Of Recognition", src: "/images/certificates/Certificate Of Recognition.png" },
+  { name: "Getting Started with AWS Cloud Essentials", src: "/images/certificates/Getting Started with AWS Cloud Essentials.png" },
+  { name: "Software Development with Amazon Q Developer", src: "/images/certificates/Software Development with Amazon Q Developer.png" },
+  { name: "Statement of Achievement", src: "/images/certificates/Statement of Achievement.png" },
+  { name: "Web Development Fundamentals", src: "/images/certificates/Web Development Fundamentals.png" },
+];
+
 export default function Work() {
   const [activeTab, setActiveTab] = useState<Tab>("projects");
+  const [certView, setCertView] = useState<Cert | null>(null);
 
   return (
     <section className="work section" id="work">
@@ -173,24 +185,25 @@ export default function Work() {
           {activeTab === "certificates" && (
             <div className="work-content fade-in">
               <div className="certificates-grid">
-                <div className="certificate-card">
-                  <img src="/images/certificates/C++ Essentials 1.png" alt="C++ Essentials 1" loading="lazy" />
-                </div>
-                <div className="certificate-card">
-                  <img src="/images/certificates/Certificate Of Recognition.png" alt="Certificate Of Recognition" loading="lazy" />
-                </div>
-                <div className="certificate-card">
-                  <img src="/images/certificates/Getting Started with AWS Cloud Essentials.png" alt="Getting Started with AWS Cloud Essentials" loading="lazy" />
-                </div>
-                <div className="certificate-card">
-                  <img src="/images/certificates/Software Development with Amazon Q Developer.png" alt="Software Development with Amazon Q Developer" loading="lazy" />
-                </div>
-                <div className="certificate-card">
-                  <img src="/images/certificates/Statement of Achievement.png" alt="Statement of Achievement" loading="lazy" />
-                </div>
-                <div className="certificate-card">
-                  <img src="/images/certificates/Web Development Fundamentals.png" alt="Web Development Fundamentals" loading="lazy" />
-                </div>
+                {certImages.map((cert) => (
+                  <div className="certificate-card" key={cert.name} onClick={() => setCertView(cert)}>
+                    <img src={cert.src} alt={cert.name} loading="lazy" />
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {certView && (
+            <div className="cert-lightbox" onClick={() => setCertView(null)}>
+              <div className="cert-lightbox-inner" onClick={(e) => e.stopPropagation()}>
+                <button className="cert-lightbox-close" onClick={() => setCertView(null)} aria-label="Close">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" />
+                  </svg>
+                </button>
+                <img src={certView.src} alt={certView.name} className="cert-lightbox-img" />
+                <p className="cert-lightbox-name">{certView.name}</p>
               </div>
             </div>
           )}
