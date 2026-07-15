@@ -1950,10 +1950,10 @@ html.sidebar-is-collapsed main {
     padding-top: 3.2rem;
   }
   .hero {
-    padding: .5rem 1rem 1rem;
+    padding: .3rem .8rem .8rem;
     min-height: auto;
     grid-template-columns: 1fr;
-    gap: 1rem;
+    gap: .6rem;
     max-width: 100%;
   }
   .hero-content { order: 1; }
@@ -1962,22 +1962,24 @@ html.sidebar-is-collapsed main {
     order: 2;
     max-width: 100%;
     min-height: auto;
-    max-height: 300px;
+    max-height: 220px;
     overflow: hidden;
   }
-  .hero-name { font-size: 1.8rem; margin-bottom: .4rem; }
-  .hero-bio { font-size: .8rem; margin-bottom: .8rem; }
-  .hero-ctas { margin-bottom: 1rem; }
-  .hero-stats { gap: .6rem; flex-wrap: wrap; }
-  .stat-num { font-size: .9rem; }
-  .stat-label { font-size: .55rem; }
+  .hero-greeting { font-size: .65rem; padding: .25rem .6rem; margin-bottom: .5rem; }
+  .hero-name { font-size: 1.5rem; margin-bottom: .3rem; }
+  .hero-bio { font-size: .72rem; margin-bottom: .5rem; }
+  .hero-ctas { margin-bottom: .6rem; }
+  .hero-ctas .btn { padding: .4rem .8rem; font-size: .75rem; }
+  .hero-stats { gap: .5rem; flex-wrap: wrap; }
+  .stat-num { font-size: .8rem; }
+  .stat-label { font-size: .5rem; }
 
-  .nf-top { flex-direction: row; gap: .5rem; align-items: flex-start; }
-  .nf-art { font-size: .28rem; line-height: 1.1; flex-shrink: 0; }
-  .nf-info { font-size: .6rem; line-height: 1.5; }
-  .terminal-code { padding: .6rem; font-size: .65rem; }
-  .tc-log { max-height: 60px; font-size: .65rem; }
-  .tc-prompt { font-size: .65rem; }
+  .nf-top { flex-direction: row; gap: .4rem; align-items: flex-start; }
+  .nf-art { font-size: .22rem; line-height: 1; flex-shrink: 0; }
+  .nf-info { font-size: .5rem; line-height: 1.4; }
+  .terminal-code { padding: .4rem; font-size: .55rem; }
+  .tc-log { max-height: 45px; font-size: .55rem; }
+  .tc-prompt { font-size: .55rem; }
 
   .section { padding: 2.5rem 0; }
   .section-label { font-size: .75rem; }
