@@ -1706,8 +1706,9 @@ html.sidebar-is-collapsed main {
   .stat-num { font-size: 1.1rem; }
   .stat-label { font-size: .65rem; }
 
-  .nf-top { flex-direction: column; gap: .8rem; }
-  .nf-art { font-size: .35rem; }
+  .nf-top { flex-direction: row; gap: .8rem; align-items: flex-start; }
+  .nf-art { font-size: .32rem; line-height: 1.1; flex-shrink: 0; }
+  .nf-info { font-size: .65rem; line-height: 1.6; }
   .terminal-code { padding: 1rem; font-size: .72rem; }
   .tc-log { max-height: 80px; font-size: .72rem; }
   .tc-prompt { font-size: .72rem; }
@@ -1740,7 +1741,8 @@ html.sidebar-is-collapsed main {
   .skills-grid { grid-template-columns: 1fr; }
   .github-stats { grid-template-columns: repeat(2, 1fr); }
   .sidebar-fixed-nav a { font-size: .65rem; padding: .3rem .35rem; }
-  .nf-art { font-size: .28rem; }
+  .nf-art { font-size: .22rem; line-height: 1.05; }
+  .nf-info { font-size: .55rem; }
   .terminal-code { padding: .7rem; font-size: .65rem; }
 }
 
