@@ -56,6 +56,16 @@ body {
 html {
   background: var(--bg);
   scroll-behavior: smooth;
+  -webkit-tap-highlight-color: transparent;
+}
+
+a, button, [role="button"], input, label, select, textarea, .project-list-card, .certificate-card, .tech-card, .work-tab, .sidebar-collapse-btn, .nav-hamburger, .contact-form button, .terminal-input-area {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+}
+button, .sidebar-collapse-btn, .sidebar-toggle, .sidebar-close, .nav-hamburger, .work-tab, .project-list-card, .certificate-card, .tech-card, .proj-detail-close, .proj-detail-nav, .proj-dot, .cert-lightbox-close {
+  user-select: none;
+  -webkit-user-select: none;
 }
 
 body::before {
@@ -1059,33 +1069,13 @@ html.sidebar-is-collapsed main {
   background: var(--glow);
 }
 
-/* ─── PROJECT DETAIL OVERLAY ───────────────────────────────────── */
-.proj-detail-overlay {
-  position: fixed;
-  inset: 0;
-  z-index: 500;
-  background: rgba(0, 0, 0, .8);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  padding: 2rem;
-  overflow-y: auto;
-  animation: certFadeIn .2s ease;
-}
-.proj-detail {
+/* ─── PROJECT DETAIL INLINE ─────────────────────────────────────── */
+.work-content-area { position: relative; }
+.proj-detail-inline {
   position: relative;
-  max-width: 750px;
-  width: 100%;
-  background: var(--bg2);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  box-shadow: 0 16px 60px rgba(0, 0, 0, .5);
-  margin: auto 0;
+  animation: fadeSlideUp .3s var(--ease) forwards;
 }
-.proj-detail-close {
+.proj-detail-inline .proj-detail-close {
   position: absolute;
   top: .6rem;
   right: .6rem;
@@ -1102,7 +1092,7 @@ html.sidebar-is-collapsed main {
   z-index: 10;
   transition: color .2s, background .2s;
 }
-.proj-detail-close:hover {
+.proj-detail-inline .proj-detail-close:hover {
   color: var(--accent);
   background: var(--glow);
 }
@@ -1112,6 +1102,8 @@ html.sidebar-is-collapsed main {
   position: relative;
   width: 100%;
   background: #000;
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  overflow: hidden;
 }
 .proj-detail-img {
   width: 100%;
@@ -2007,8 +1999,6 @@ html.sidebar-is-collapsed main {
   .modal-info { padding: 1rem; }
   .modal-close { top: .6rem; right: .6rem; width: 32px; height: 32px; }
   .modal-desc { font-size: .82rem; }
-  .proj-detail-overlay { padding: 0; }
-  .proj-detail { max-width: 100%; border-radius: 0; min-height: 100vh; }
   .proj-detail-body { padding: 1rem; }
   .proj-detail-title { font-size: 1.1rem; }
   .proj-detail-long { font-size: .78rem; }

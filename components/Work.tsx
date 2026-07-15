@@ -255,59 +255,33 @@ export default function Work() {
             </div>
           </div>
 
-          {activeTab === "projects" && (
-            <div className="work-content fade-in">
-              <div className="projects-list">
-                {projects.map((p) => (
-                  <div className="project-list-card" key={p.title} onClick={() => { setProjectView(p); setProjImgIdx(0); }}>
-                    <div className="project-list-image">
-                      <img src={p.image} alt={`${p.title} screenshot`} loading="lazy" />
+          <div className="work-content-area">
+            {activeTab === "projects" && !projectView && (
+              <div className="work-content fade-in">
+                <div className="projects-list">
+                  {projects.map((p) => (
+                    <div className="project-list-card" key={p.title} onClick={() => { setProjectView(p); setProjImgIdx(0); }}>
+                      <div className="project-list-image">
+                        <img src={p.image} alt={`${p.title} screenshot`} loading="lazy" />
+                      </div>
+                      <div className="project-list-info">
+                        <h3 className="project-title">{p.title}</h3>
+                        <p className="project-desc">{p.desc}</p>
+                      </div>
+                      <div className="project-list-action">
+                        <span className="project-details-btn">
+                          Details
+                          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>
+                        </span>
+                      </div>
                     </div>
-                    <div className="project-list-info">
-                      <h3 className="project-title">{p.title}</h3>
-                      <p className="project-desc">{p.desc}</p>
-                    </div>
-                    <div className="project-list-action">
-                      <span className="project-details-btn">
-                        Details
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>
-                      </span>
-                    </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
-            </div>
-          )}
+            )}
 
-          {activeTab === "certificates" && (
-            <div className="work-content fade-in">
-              <div className="certificates-grid">
-                {certImages.map((cert) => (
-                  <div className="certificate-card" key={cert.name} onClick={() => setCertView(cert)}>
-                    <img src={cert.src} alt={cert.name} loading="lazy" />
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
-
-          {certView && (
-            <div className="cert-lightbox" onClick={() => setCertView(null)}>
-              <div className="cert-lightbox-inner" onClick={(e) => e.stopPropagation()}>
-                <button className="cert-lightbox-close" onClick={() => setCertView(null)} aria-label="Close">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" />
-                  </svg>
-                </button>
-                <img src={certView.src} alt={certView.name} className="cert-lightbox-img" />
-                <p className="cert-lightbox-name">{certView.name}</p>
-              </div>
-            </div>
-          )}
-
-          {projectView && (
-            <div className="proj-detail-overlay" onClick={() => setProjectView(null)}>
-              <div className="proj-detail" onClick={(e) => e.stopPropagation()}>
+            {activeTab === "projects" && projectView && (
+              <div className="work-content proj-detail-inline">
                 <button className="proj-detail-close" onClick={() => setProjectView(null)} aria-label="Close">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" />
@@ -371,30 +345,56 @@ export default function Work() {
                   </div>
                 </div>
               </div>
-            </div>
-          )}
+            )}
 
-          {activeTab === "techstack" && (
-            <div className="work-content fade-in">
-              <div className="techstack-container">
-                {techCategories.map((cat) => (
-                  <div className="tech-category" key={cat.category}>
-                    <span className="tech-category-label mono">{cat.category}</span>
-                    <div className="tech-cards">
-                      {cat.items.map((item) => (
-                        <div className="tech-card" key={item.name}>
-                          <div className="tech-card-icon">
-                            {item.icon}
-                          </div>
-                          <span className="tech-card-name">{item.name}</span>
-                        </div>
-                      ))}
+            {activeTab === "certificates" && (
+              <div className="work-content fade-in">
+                <div className="certificates-grid">
+                  {certImages.map((cert) => (
+                    <div className="certificate-card" key={cert.name} onClick={() => setCertView(cert)}>
+                      <img src={cert.src} alt={cert.name} loading="lazy" />
                     </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
-            </div>
-          )}
+            )}
+
+            {certView && (
+              <div className="cert-lightbox" onClick={() => setCertView(null)}>
+                <div className="cert-lightbox-inner" onClick={(e) => e.stopPropagation()}>
+                  <button className="cert-lightbox-close" onClick={() => setCertView(null)} aria-label="Close">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" />
+                    </svg>
+                  </button>
+                  <img src={certView.src} alt={certView.name} className="cert-lightbox-img" />
+                  <p className="cert-lightbox-name">{certView.name}</p>
+                </div>
+              </div>
+            )}
+
+            {activeTab === "techstack" && (
+              <div className="work-content fade-in">
+                <div className="techstack-container">
+                  {techCategories.map((cat) => (
+                    <div className="tech-category" key={cat.category}>
+                      <span className="tech-category-label mono">{cat.category}</span>
+                      <div className="tech-cards">
+                        {cat.items.map((item) => (
+                          <div className="tech-card" key={item.name}>
+                            <div className="tech-card-icon">
+                              {item.icon}
+                            </div>
+                            <span className="tech-card-name">{item.name}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </section>
