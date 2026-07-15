@@ -1652,6 +1652,12 @@ html.sidebar-is-collapsed main {
 }
 
 @media (max-width: 768px) {
+  body {
+    transform: scale(0.8);
+    transform-origin: top left;
+    width: 125%;
+    overflow-x: hidden;
+  }
   .sidebar-fixed {
     position: fixed;
     top: 0;
