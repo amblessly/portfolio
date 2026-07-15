@@ -1689,10 +1689,10 @@ html.sidebar-is-collapsed main {
     padding-top: 3.2rem;
   }
   .hero {
-    padding-top: 1.5rem;
+    padding: 1rem 1.5rem 2rem;
     min-height: auto;
     grid-template-columns: 1fr;
-    gap: 2rem;
+    gap: 1.5rem;
   }
   .hero-content { order: 1; }
   .hero-terminal {
@@ -1700,12 +1700,15 @@ html.sidebar-is-collapsed main {
     order: 2;
     max-width: 100%;
     min-height: auto;
+    max-height: 350px;
+    overflow: hidden;
   }
-  .hero-name { font-size: 2.2rem; }
-  .hero-bio { font-size: .9rem; }
-  .hero-stats { gap: 1rem; flex-wrap: wrap; }
-  .stat-num { font-size: 1.1rem; }
-  .stat-label { font-size: .65rem; }
+  .hero-name { font-size: 2rem; margin-bottom: .6rem; }
+  .hero-bio { font-size: .85rem; margin-bottom: 1.2rem; }
+  .hero-ctas { margin-bottom: 1.5rem; }
+  .hero-stats { gap: .8rem; flex-wrap: wrap; }
+  .stat-num { font-size: 1rem; }
+  .stat-label { font-size: .6rem; }
 
   .nf-top { flex-direction: row; gap: .8rem; align-items: flex-start; }
   .nf-art { font-size: .32rem; line-height: 1.1; flex-shrink: 0; }
@@ -1714,8 +1717,9 @@ html.sidebar-is-collapsed main {
   .tc-log { max-height: 80px; font-size: .72rem; }
   .tc-prompt { font-size: .72rem; }
 
-  .section { padding: 4rem 0; }
+  .section { padding: 2.5rem 0; }
   .section-label { font-size: .75rem; }
+  .section-title { font-size: 1.3rem; margin-bottom: 1.5rem; }
   .skills-grid { grid-template-columns: repeat(2, 1fr); }
   .projects-list { grid-template-columns: repeat(2, 1fr); }
   .projects-grid { grid-template-columns: 1fr; }
@@ -1736,17 +1740,23 @@ html.sidebar-is-collapsed main {
 
 @media (max-width: 480px) {
   html { zoom: 0.7; }
-  .container { padding: 0 1rem; }
-  .hero { padding: 1rem 1rem 3rem; }
-  .hero-name { font-size: 1.8rem; }
+  .container { padding: 0 .8rem; }
+  .hero { padding: .8rem .8rem 1.5rem; gap: 1rem; }
+  .hero-name { font-size: 1.6rem; margin-bottom: .4rem; }
+  .hero-bio { font-size: .75rem; margin-bottom: 1rem; }
+  .hero-ctas { margin-bottom: 1rem; }
   .hero-ctas { flex-direction: column; }
   .btn { width: 100%; justify-content: center; }
   .skills-grid { grid-template-columns: 1fr; }
+  .projects-list { grid-template-columns: 1fr; }
   .github-stats { grid-template-columns: repeat(2, 1fr); }
-  .sidebar-fixed-nav a { font-size: .65rem; padding: .3rem .35rem; }
+  .sidebar-fixed-nav a { font-size: .6rem; padding: .25rem .3rem; }
   .nf-art { font-size: .22rem; line-height: 1.05; }
-  .nf-info { font-size: .55rem; }
-  .terminal-code { padding: .7rem; font-size: .65rem; }
+  .nf-info { font-size: .5rem; }
+  .terminal-code { padding: .5rem; font-size: .6rem; }
+  .hero-terminal { max-height: 280px; }
+  .section { padding: 2rem 0; }
+  .section-title { font-size: 1.1rem; margin-bottom: 1rem; }
 }
 
 /* ═══════════════════════════════════════════════════════════════════
