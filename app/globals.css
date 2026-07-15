@@ -1950,7 +1950,7 @@ html.sidebar-is-collapsed main {
     padding-top: 3.2rem;
   }
   .hero {
-    padding: 2.5rem 1rem 2rem;
+    padding: 900px 1rem 2rem;
     min-height: auto;
     grid-template-columns: 1fr;
     gap: 1.5rem;
