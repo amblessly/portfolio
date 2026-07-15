@@ -1911,7 +1911,8 @@ html.sidebar-is-collapsed main {
 }
 
 @media (max-width: 768px) {
-  html { zoom: 0.8; }
+  .container { padding: 0 1rem; width: 100%; }
+  body { overflow-x: hidden; }
   .sidebar-fixed {
     position: fixed;
     top: 0;
@@ -1948,10 +1949,11 @@ html.sidebar-is-collapsed main {
     padding-top: 3.2rem;
   }
   .hero {
-    padding: 1rem 1.5rem 2rem;
+    padding: 1rem 1rem 2rem;
     min-height: auto;
     grid-template-columns: 1fr;
     gap: 1.5rem;
+    max-width: 100%;
   }
   .hero-content { order: 1; }
   .hero-terminal {
@@ -2012,9 +2014,8 @@ html.sidebar-is-collapsed main {
 }
 
 @media (max-width: 480px) {
-  html { zoom: 0.7; }
-  .container { padding: 0 .8rem; }
-  .hero { padding: .8rem .8rem 1.5rem; gap: 1rem; }
+  .container { padding: 0 .6rem; width: 100%; }
+  .hero { padding: .6rem .6rem 1.5rem; gap: 1rem; }
   .hero-name { font-size: 1.6rem; margin-bottom: .4rem; }
   .hero-bio { font-size: .75rem; margin-bottom: 1rem; }
   .hero-ctas { margin-bottom: 1rem; }
