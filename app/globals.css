@@ -1094,7 +1094,7 @@ html.sidebar-is-collapsed main {
 /* ─── PROJECTS LIST ─────────────────────────────────────────────── */
 .projects-list {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
 }
 
@@ -1717,6 +1717,7 @@ html.sidebar-is-collapsed main {
   .section { padding: 4rem 0; }
   .section-label { font-size: .75rem; }
   .skills-grid { grid-template-columns: repeat(2, 1fr); }
+  .projects-list { grid-template-columns: repeat(2, 1fr); }
   .projects-grid { grid-template-columns: 1fr; }
   .github-card-header { flex-wrap: wrap; }
   .github-card-header .btn { width: 100%; justify-content: center; }
