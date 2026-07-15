@@ -1652,12 +1652,7 @@ html.sidebar-is-collapsed main {
 }
 
 @media (max-width: 768px) {
-  body {
-    transform: scale(0.8);
-    transform-origin: top left;
-    width: 125%;
-    overflow-x: hidden;
-  }
+  html { zoom: 0.8; }
   .sidebar-fixed {
     position: fixed;
     top: 0;
@@ -1739,6 +1734,7 @@ html.sidebar-is-collapsed main {
 }
 
 @media (max-width: 480px) {
+  html { zoom: 0.7; }
   .container { padding: 0 1rem; }
   .hero { padding: 1rem 1rem 3rem; }
   .hero-name { font-size: 1.8rem; }
