@@ -970,16 +970,30 @@ html.sidebar-is-collapsed main {
   box-shadow: none;
 }
 
-.certificates-empty {
-  text-align: center;
-  padding: 4rem 2rem;
-  color: var(--text-3);
-  font-size: .95rem;
-  background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  border: 1px solid var(--border);
+.certificates-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.certificate-card {
   border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.03);
+  transition: transform .25s var(--ease), box-shadow .25s var(--ease);
+}
+
+.certificate-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, .25);
+}
+
+.certificate-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
 }
 
 /* ─── WORK CONTENT ANIMATION ────────────────────────────────────── */
@@ -1722,6 +1736,7 @@ html.sidebar-is-collapsed main {
   .section-title { font-size: 1.3rem; margin-bottom: 1.5rem; }
   .skills-grid { grid-template-columns: repeat(2, 1fr); }
   .projects-list { grid-template-columns: repeat(2, 1fr); gap: .6rem; }
+  .certificates-grid { grid-template-columns: repeat(2, 1fr); gap: .6rem; }
   .project-list-card { padding: .6rem; gap: .4rem; }
   .project-list-image { height: 90px; }
   .project-list-info { padding-right: .5rem; }

@@ -172,8 +172,25 @@ export default function Work() {
 
           {activeTab === "certificates" && (
             <div className="work-content fade-in">
-              <div className="certificates-empty">
-                <p>Coming soon — certificates and achievements will be displayed here.</p>
+              <div className="certificates-grid">
+                <div className="certificate-card">
+                  <img src="/images/certificates/C++ Essentials 1.png" alt="C++ Essentials 1" loading="lazy" />
+                </div>
+                <div className="certificate-card">
+                  <img src="/images/certificates/Certificate Of Recognition.png" alt="Certificate Of Recognition" loading="lazy" />
+                </div>
+                <div className="certificate-card">
+                  <img src="/images/certificates/Getting Started with AWS Cloud Essentials.png" alt="Getting Started with AWS Cloud Essentials" loading="lazy" />
+                </div>
+                <div className="certificate-card">
+                  <img src="/images/certificates/Software Development with Amazon Q Developer.png" alt="Software Development with Amazon Q Developer" loading="lazy" />
+                </div>
+                <div className="certificate-card">
+                  <img src="/images/certificates/Statement of Achievement.png" alt="Statement of Achievement" loading="lazy" />
+                </div>
+                <div className="certificate-card">
+                  <img src="/images/certificates/Web Development Fundamentals.png" alt="Web Development Fundamentals" loading="lazy" />
+                </div>
               </div>
             </div>
           )}
