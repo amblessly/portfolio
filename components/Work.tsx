@@ -116,7 +116,7 @@ export default function Work() {
     <section className="work section" id="work">
       <div className="container">
         <div className="section-label reveal">
-          <span className="mono label-num">03.</span>
+          <span className="mono label-num">02.</span>
           <span>my work</span>
           <div className="label-line"></div>
         </div>

@@ -11,7 +11,7 @@ export default function Contact() {
     <section className="contact section" id="contact">
       <div className="container">
         <div className="section-label reveal">
-          <span className="mono label-num">07.</span>
+          <span className="mono label-num">05.</span>
           <span>contact</span>
           <div className="label-line"></div>
         </div>

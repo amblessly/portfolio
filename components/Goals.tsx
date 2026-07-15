@@ -42,7 +42,7 @@ export default function Goals() {
     <section className="goals section" id="roadmap">
       <div className="container">
         <div className="section-label reveal">
-          <span className="mono label-num">06.</span>
+          <span className="mono label-num">04.</span>
           <span>the roadmap</span>
           <div className="label-line"></div>
         </div>

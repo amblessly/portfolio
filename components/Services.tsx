@@ -30,7 +30,7 @@ export default function Services() {
     <section className="services section" id="services">
       <div className="container">
         <div className="section-label reveal">
-          <span className="mono label-num">05.</span>
+          <span className="mono label-num">03.</span>
           <span>services</span>
           <div className="label-line"></div>
         </div>
