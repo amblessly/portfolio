@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect } from "react";
-import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import BentoGrid from "@/components/BentoGrid";
 import Contact from "@/components/Contact";
@@ -21,6 +20,20 @@ export default function Page() {
       root.setAttribute("data-theme", next);
       localStorage.setItem("portfolio-theme", next);
     });
+
+    // ─── COPY / SAVE PREVENTION ───────────────────────────────────────
+    const blockCopy = (e: Event) => e.preventDefault();
+    const blockKeys = (e: KeyboardEvent) => {
+      if (e.ctrlKey || e.metaKey) {
+        const k = e.key.toLowerCase();
+        if (["c", "s", "u", "p"].includes(k)) e.preventDefault();
+      }
+    };
+    document.addEventListener("contextmenu", blockCopy);
+    document.addEventListener("copy", blockCopy);
+    document.addEventListener("cut", blockCopy);
+    document.addEventListener("dragstart", blockCopy);
+    document.addEventListener("keydown", blockKeys);
 
     // ─── TYPING ANIMATION ────────────────────────────────────────────────
     const roles = [
@@ -359,7 +372,6 @@ export default function Page() {
   return (
     <>
       <main>
-      <Navbar />
       <button
         className="theme-toggle-fixed"
         id="themeToggle"
