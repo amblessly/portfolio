@@ -265,6 +265,13 @@ body::before {
   overflow-y: auto;
   scrollbar-width: thin;
 }
+
+/* Work spans full width as the last bento item */
+.bento-card.work {
+  grid-column: 1 / -1;
+  max-height: none;
+  overflow: visible;
+}
 .bento-card.work::-webkit-scrollbar,
 .bento-card.services::-webkit-scrollbar {
   width: 6px;

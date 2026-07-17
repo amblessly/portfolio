@@ -4,7 +4,6 @@ import { useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
-import Skills from "@/components/Skills";
 import Work from "@/components/Work";
 import Services from "@/components/Services";
 import Goals from "@/components/Goals";
@@ -394,9 +393,8 @@ export default function Page() {
       <section className="bento-wrap">
         <div className="bento">
           <About />
-          <Skills />
-          <Work />
           <Services />
+          <Work />
         </div>
       </section>
       <Goals />
