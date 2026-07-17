@@ -8,7 +8,6 @@ import Work from "@/components/Work";
 import Services from "@/components/Services";
 import Goals from "@/components/Goals";
 import Contact from "@/components/Contact";
-import Footer from "@/components/Footer";
 import ProjectModal from "@/components/ProjectModal";
 
 export default function Page() {
@@ -399,7 +398,6 @@ export default function Page() {
         </div>
       </section>
       <Contact />
-      <Footer />
       <ProjectModal />
     </main>
   );

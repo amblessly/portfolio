@@ -1636,6 +1636,15 @@ body::before {
 .footer p { font-size: .78rem; color: var(--text-3); }
 .footer .accent { color: var(--accent); }
 
+.contact-footer {
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: .5rem;
+  border-top: 1px solid var(--border);
+  margin-top: 2.5rem; padding-top: 1.5rem;
+}
+.contact-footer p { font-size: .78rem; color: var(--text-3); }
+.contact-footer .accent { color: var(--accent); }
+
 /* ─── LIGHT THEME SPECIFIC OVERRIDES ────────────────────────────── */
 [data-theme="light"] .hero-terminal {
   box-shadow: 0 16px 48px rgba(0,0,0,.12), 0 0 0 1px var(--border);
