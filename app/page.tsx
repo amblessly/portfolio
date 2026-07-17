@@ -3,6 +3,7 @@
 import { useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
+import BentoGrid from "@/components/BentoGrid";
 import Contact from "@/components/Contact";
 
 export default function Page() {
@@ -385,6 +386,7 @@ export default function Page() {
         </span>
       </button>
       <Hero />
+      <BentoGrid />
       <Contact />
     </main>
     </>
