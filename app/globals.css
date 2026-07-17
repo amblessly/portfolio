@@ -659,11 +659,11 @@ body::before {
   color: var(--text-2); margin-bottom: 1.2rem; line-height: 1.8;
 }
 .about-text {
-  background: var(--bg2);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  padding: 2.5rem;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  background: none;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  box-shadow: none;
 }
 .about-text .section-title { margin-bottom: 1.5rem; }
 .about-tags { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1.5rem; }
@@ -769,11 +769,11 @@ body::before {
 
 /* ─── WORK TABS ─────────────────────────────────────────────────── */
 .work-card {
-  background: var(--bg2);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  padding: 2.5rem;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  background: none;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  box-shadow: none;
 }
 .work-tabs-wrapper {
   display: flex;
@@ -1601,11 +1601,11 @@ body::before {
 
 /* ─── SERVICES ───────────────────────────────────────────────────── */
 .services-card {
-  background: var(--bg2);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  padding: 2.5rem;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  background: none;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  box-shadow: none;
 }
 .services-intro {
   color: var(--text-2);
