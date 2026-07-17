@@ -1,7 +1,7 @@
 export default function About() {
   return (
-    <section className="about section" id="about">
-      <div className="container">
+    <div className="bento-card about" id="about">
+      <div className="bento-card-inner">
         <div className="section-label reveal">
           <span className="mono label-num">01.</span>
           <span>about me</span>
@@ -25,6 +25,6 @@ export default function About() {
           </div>
         </div>
       </div>
-    </section>
+    </div>
   );
 }

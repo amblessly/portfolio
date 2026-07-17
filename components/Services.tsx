@@ -27,8 +27,8 @@ const services = [
 
 export default function Services() {
   return (
-    <section className="services section" id="services">
-      <div className="container">
+    <div className="bento-card services" id="services">
+      <div className="bento-card-inner">
         <div className="section-label reveal">
           <span className="mono label-num">03.</span>
           <span>services</span>
@@ -52,6 +52,6 @@ export default function Services() {
           <p className="services-note reveal mono">// Interested? Let&apos;s talk — <a href="#contact" className="accent">send me a message.</a></p>
         </div>
       </div>
-    </section>
+    </div>
   );
 }

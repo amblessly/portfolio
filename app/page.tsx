@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
+import Skills from "@/components/Skills";
 import Work from "@/components/Work";
 import Services from "@/components/Services";
 import Goals from "@/components/Goals";
@@ -147,13 +148,13 @@ export default function Page() {
     });
 
     // ─── ACTIVE NAV HIGHLIGHT ON SCROLL ──────────────────────────────────
-    const sections = document.querySelectorAll("section[id]");
+    const sections = document.querySelectorAll("section[id], .bento-card[id]");
     const navLinks = document.querySelectorAll(".navbar-links a");
 
     const onHighlightScroll = () => {
       let current = "";
       sections.forEach((section) => {
-        const sectionTop = (section as HTMLElement).offsetTop - 100;
+        const sectionTop = (section as HTMLElement).getBoundingClientRect().top + window.scrollY - 100;
         if (window.scrollY >= sectionTop) current = section.getAttribute("id") || "";
       });
       navLinks.forEach((link) => {
@@ -390,9 +391,14 @@ export default function Page() {
         </span>
       </button>
       <Hero />
-      <About />
-      <Work />
-      <Services />
+      <section className="bento-wrap">
+        <div className="bento">
+          <About />
+          <Skills />
+          <Work />
+          <Services />
+        </div>
+      </section>
       <Goals />
       <Contact />
       <Footer />

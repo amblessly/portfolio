@@ -51,10 +51,9 @@ const skills = [
 
 export default function Skills() {
   return (
-    <section className="skills section" id="skills">
-      <div className="container">
+    <div className="bento-card skills" id="skills">
+      <div className="bento-card-inner">
         <div className="section-label reveal">
-          <span className="mono label-num">03.</span>
           <span>skills &amp; tools</span>
           <div className="label-line"></div>
         </div>
@@ -73,6 +72,6 @@ export default function Skills() {
           ))}
         </div>
       </div>
-    </section>
+    </div>
   );
 }

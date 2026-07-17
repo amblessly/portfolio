@@ -222,8 +222,8 @@ export default function Work() {
   const [projImgIdx, setProjImgIdx] = useState(0);
 
   return (
-    <section className="work section" id="work">
-      <div className="container">
+    <div className="bento-card work" id="work">
+      <div className="bento-card-inner">
         <div className="section-label reveal">
           <span className="mono label-num">02.</span>
           <span>my work</span>
@@ -397,6 +397,6 @@ export default function Work() {
           </div>
         </div>
       </div>
-    </section>
+    </div>
   );
 }

@@ -39,7 +39,7 @@ const goals = [
 
 export default function Goals() {
   return (
-    <section className="goals section" id="roadmap">
+    <section className="goals section" id="goals">
       <div className="container">
         <div className="section-label reveal">
           <span className="mono label-num">04.</span>
