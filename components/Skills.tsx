@@ -52,12 +52,11 @@ const skills = [
 export default function Skills() {
   return (
     <div className="bento-card skills" id="skills">
-      <div className="bento-card-inner">
-        <div className="section-label reveal">
-          <span>skills &amp; tools</span>
-          <div className="label-line"></div>
-        </div>
-        <div className="skills-grid">
+      <div className="section-label reveal">
+        <span>skills &amp; tools</span>
+        <div className="label-line"></div>
+      </div>
+      <div className="skills-grid">
           {skills.map((skill, i) => (
             <div className="skill-card reveal" data-delay={i * 60} key={skill.name}>
               <div className="skill-icon">
@@ -71,7 +70,6 @@ export default function Skills() {
             </div>
           ))}
         </div>
-      </div>
     </div>
   );
 }

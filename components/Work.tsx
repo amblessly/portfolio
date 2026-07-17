@@ -223,7 +223,6 @@ export default function Work() {
 
   return (
     <div className="bento-card work" id="work">
-      <div className="bento-card-inner">
         <div className="section-label reveal">
           <span className="mono label-num">02.</span>
           <span>my work</span>
@@ -396,7 +395,6 @@ export default function Work() {
             )}
           </div>
         </div>
-      </div>
     </div>
   );
 }
