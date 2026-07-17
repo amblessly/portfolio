@@ -125,37 +125,27 @@ body::before {
   top: 1.25rem;
   left: 50%;
   transform: translateX(-50%);
-  width: min(840px, calc(100% - 2rem));
+  width: max-content;
+  max-width: calc(100% - 2rem);
   z-index: 200;
 }
 
 .navbar-inner {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
+  justify-content: center;
+  gap: .25rem;
   background: var(--bg3);
   border: 1px solid var(--border);
   border-radius: 999px;
-  padding: .55rem .65rem .55rem 1.25rem;
+  padding: .5rem .65rem;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-}
-
-.navbar-logo {
-  font-family: var(--font-mono);
-  font-size: 1.05rem;
-  font-weight: 700;
-  text-decoration: none;
-  color: var(--text);
-  letter-spacing: -.02em;
-  white-space: nowrap;
 }
 
 .navbar-links {
   display: flex;
   align-items: center;
-  gap: .2rem;
-  flex: 1;
+  gap: .1rem;
   justify-content: center;
 }
 
@@ -164,7 +154,7 @@ body::before {
   font-size: .85rem;
   text-decoration: none;
   color: var(--text-2);
-  padding: .45rem .8rem;
+  padding: .45rem .85rem;
   border-radius: 999px;
   transition: color .2s, background .2s;
   white-space: nowrap;
@@ -178,23 +168,6 @@ body::before {
 .navbar-links a.active {
   color: var(--accent);
   background: var(--glow);
-}
-
-.navbar-cta {
-  font-family: var(--font-mono);
-  font-size: .85rem;
-  text-decoration: none;
-  color: var(--accent);
-  padding: .45rem .9rem;
-  border-radius: 999px;
-  border: 1px solid var(--accent);
-  transition: color .2s, background .2s;
-  white-space: nowrap;
-}
-
-.navbar-cta:hover {
-  background: var(--accent);
-  color: var(--bg);
 }
 
 /* ─── BENTO GRID ─────────────────────────────────────────────────── */
@@ -1704,35 +1677,28 @@ body::before {
     width: calc(100% - 1rem);
   }
   .navbar-inner {
-    padding: .45rem .5rem .45rem .9rem;
-    gap: .5rem;
+    padding: .45rem .6rem;
+    gap: .2rem;
   }
-  .navbar-logo { font-size: .95rem; }
   .navbar-links {
     gap: 0;
-    overflow-x: auto;
-    justify-content: flex-start;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
+    justify-content: center;
+    flex-wrap: wrap;
   }
-  .navbar-links::-webkit-scrollbar { display: none; }
   .navbar-links a {
     font-size: .78rem;
     padding: .4rem .55rem;
   }
-  .navbar-cta { font-size: .78rem; padding: .4rem .7rem; }
 }
 
 @media (max-width: 768px) {
   html { zoom: 1.1; }
   .container { padding: 0 1rem; width: 100%; }
   body { overflow-x: hidden; }
-  .navbar-logo { font-size: .9rem; }
   .navbar-links a {
     font-size: .72rem;
     padding: .35rem .5rem;
   }
-  .navbar-cta { font-size: .72rem; padding: .35rem .6rem; }
   .hero {
     padding: 150px 1rem 2rem;
     min-height: auto;
