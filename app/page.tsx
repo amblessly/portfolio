@@ -396,8 +396,8 @@ export default function Page() {
           <Services />
           <Work />
         </div>
+        <Goals />
       </section>
-      <Goals />
       <Contact />
       <Footer />
       <ProjectModal />

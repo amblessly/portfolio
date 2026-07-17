@@ -39,8 +39,7 @@ const goals = [
 
 export default function Goals() {
   return (
-    <section className="goals section" id="goals">
-      <div className="container">
+    <div className="bento-card goals" id="goals">
         <div className="section-label reveal">
           <span className="mono label-num">04.</span>
           <span>the roadmap</span>
@@ -61,7 +60,6 @@ export default function Goals() {
             </div>
           ))}
         </div>
-      </div>
-    </section>
+    </div>
   );
 }
