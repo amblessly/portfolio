@@ -209,25 +209,26 @@ body::before {
 .bento {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  align-items: start;
   gap: 1.25rem;
   margin: 2rem 0 1rem;
 }
 
 .bento-card {
-  background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
+  background: rgba(255, 255, 255, 0.025);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
-  padding: 2rem;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
-  transition: border-color .3s var(--ease), transform .3s var(--ease), box-shadow .3s var(--ease);
+  padding: 1.75rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  transition: border-color .3s var(--ease), box-shadow .3s var(--ease);
+  will-change: auto;
 }
 
 .bento-card:hover {
   border-color: var(--accent);
-  transform: translateY(-4px);
-  box-shadow: 0 14px 44px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
 }
 
 .bento-card-inner > .section-label {
@@ -261,11 +262,21 @@ body::before {
   gap: .4rem 1rem;
 }
 
-/* let Work/Services cards scroll internally if tall */
+/* tall cards (Work / Services) get a capped height with internal scroll */
 .bento-card.work,
 .bento-card.services {
-  display: flex;
-  flex-direction: column;
+  max-height: 520px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+}
+.bento-card.work::-webkit-scrollbar,
+.bento-card.services::-webkit-scrollbar {
+  width: 6px;
+}
+.bento-card.work::-webkit-scrollbar-thumb,
+.bento-card.services::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 99px;
 }
 
 /* ─── THEME TOGGLE FIXED (top right) ─────────────────────────────── */
