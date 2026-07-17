@@ -212,10 +212,6 @@ body::before {
   margin: 2rem 0 1rem;
 }
 
-.bento-wrap > .bento-card {
-  margin-top: 1.25rem;
-}
-
 .bento-card {
   background: var(--bg2);
   border: 1px solid var(--border);
@@ -272,9 +268,9 @@ body::before {
 
 /* Work spans full width as the last bento item */
 .bento-card.work {
-  grid-column: 1 / -1;
-  max-height: none;
-  overflow: visible;
+  max-height: 520px;
+  overflow-y: auto;
+  scrollbar-width: thin;
 }
 .bento-card.work::-webkit-scrollbar,
 .bento-card.services::-webkit-scrollbar {

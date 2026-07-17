@@ -395,8 +395,8 @@ export default function Page() {
           <About />
           <Services />
           <Work />
+          <Goals />
         </div>
-        <Goals />
       </section>
       <Contact />
       <Footer />
