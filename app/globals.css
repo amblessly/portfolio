@@ -82,6 +82,8 @@ body::before {
   z-index: 0;
   white-space: pre;
   opacity: 1;
+  filter: blur(2px);
+  text-shadow: 0 0 14px var(--accent), 0 0 30px var(--accent), 0 0 50px var(--accent);
   transition: color 0.3s ease;
 }
 
@@ -543,7 +545,7 @@ body::before {
   display: flex;
   align-items: center;
   gap: .5rem;
-  margin-top: 1rem;
+  margin-top: 2.25rem;
   font-family: var(--font-mono);
   font-size: .85rem;
 }
@@ -1637,12 +1639,13 @@ body::before {
 .footer .accent { color: var(--accent); }
 
 .contact-footer {
-  display: flex; justify-content: space-between; align-items: center;
-  flex-wrap: wrap; gap: .5rem;
+  display: flex; justify-content: center; align-items: center;
+  flex-wrap: wrap; gap: .75rem;
+  max-width: 1100px; margin: 0.5rem auto 0; padding: 0 2rem 0;
   border-top: 1px solid var(--border);
-  margin-top: 2.5rem; padding-top: 1.5rem;
+  text-align: center;
 }
-.contact-footer p { font-size: .78rem; color: var(--text-3); }
+.contact-footer p { font-size: .78rem; color: var(--text-3); padding-top: 1.5rem; text-align: center; width: 100%; }
 .contact-footer .accent { color: var(--accent); }
 
 /* ─── LIGHT THEME SPECIFIC OVERRIDES ────────────────────────────── */

@@ -1,0 +1,55 @@
+01. about me
+Curious by nature,
+developer by choice.
+I'm Blessly — a Grade 12 ICT graduate and Computer Science student who got genuinely hooked on building things for the web. It started with a simple question: "how does a website actually work?" That curiosity turned into late nights reading documentation, breaking things in the browser, and slowly figuring it out through practice.
+
+I focus on web development — writing clean HTML and CSS, adding interactivity with JavaScript, and making sure everything looks right on every screen size. I'm continuously improving my skills through real projects, Computer Science studies, and hands-on practice. I'm always looking for opportunities to learn, contribute, and build better software.
+
+Right now I'm studying Computer Science, deepening my understanding of how software works at a foundational level, and taking on small freelance projects on the side. I'm open to opportunities that help me learn, contribute, and grow.
+
+Open to Freelance
+Open to Internship
+Available for Collaboration
+
+03. services
+I take on small freelance projects — clean, responsive websites built with care. No bloated templates, no over-promise. Just honest work at a student-friendly pace.
+
+Business Websites
+Simple, professional websites for small businesses — presenting your brand, services, and contact information in a clean, mobile-ready layout.
+
+Landing Pages
+Single-page sites designed to communicate one clear message — great for product launches, promotions, or online presence for a specific service.
+
+Portfolio Websites
+Personal portfolio sites for creatives, students, and professionals. Showcase your work in a polished, web-native format that stands out.
+
+Website Redesigns
+Have an existing website that feels outdated? I can rebuild or refresh the design — improving visual quality, responsiveness, and user experience.
+
+// Interested? Let's talk — send me a message.
+
+02. my work
+Things I've been working on
+
+04. the roadmap
+Where I'm headed
+Where it started
+Grade 12 ICT Graduate
+Completed the ICT strand, learned the fundamentals of programming and web design, and shipped my first real projects. This is where the interest became a commitment.
+
+Complete
+Right now
+CS Student · Building Projects
+Studying Computer Science, improving my web development skills, building projects to grow my portfolio, and exploring freelance opportunities. Every week I'm learning something new.
+
+Now
+Near future
+Freelance & Internship
+Take on more freelance projects, build a stronger client portfolio, and land an internship where I can contribute to real software alongside experienced developers.
+
+Goal
+Long term
+Software Engineer
+Graduate, join a team building software that matters, contribute to open source, and keep growing — ideally in web, full-stack, or software engineering.
+
+Vision

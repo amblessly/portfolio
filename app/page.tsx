@@ -3,12 +3,7 @@
 import { useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import About from "@/components/About";
-import Work from "@/components/Work";
-import Services from "@/components/Services";
-import Goals from "@/components/Goals";
 import Contact from "@/components/Contact";
-import ProjectModal from "@/components/ProjectModal";
 
 export default function Page() {
   useEffect(() => {
@@ -361,7 +356,8 @@ export default function Page() {
   }, []);
 
   return (
-    <main>
+    <>
+      <main>
       <Navbar />
       <button
         className="theme-toggle-fixed"
@@ -389,16 +385,8 @@ export default function Page() {
         </span>
       </button>
       <Hero />
-      <section className="bento-wrap">
-        <div className="bento">
-          <About />
-          <Services />
-          <Work />
-          <Goals />
-        </div>
-      </section>
       <Contact />
-      <ProjectModal />
     </main>
+    </>
   );
 }
