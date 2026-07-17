@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
-import Sidebar from "@/components/Sidebar";
+import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
 import Work from "@/components/Work";
@@ -148,7 +148,7 @@ export default function Page() {
 
     // ─── ACTIVE NAV HIGHLIGHT ON SCROLL ──────────────────────────────────
     const sections = document.querySelectorAll("section[id]");
-    const navLinks = document.querySelectorAll(".sidebar-nav a");
+    const navLinks = document.querySelectorAll(".navbar-links a");
 
     const onHighlightScroll = () => {
       let current = "";
@@ -157,9 +157,9 @@ export default function Page() {
         if (window.scrollY >= sectionTop) current = section.getAttribute("id") || "";
       });
       navLinks.forEach((link) => {
-        (link as HTMLElement).style.color = "";
+        link.classList.remove("active");
         if (link.getAttribute("href") === "#" + current) {
-          (link as HTMLElement).style.color = "var(--accent)";
+          link.classList.add("active");
         }
       });
     };
@@ -363,7 +363,7 @@ export default function Page() {
 
   return (
     <main>
-      <Sidebar />
+      <Navbar />
       <button
         className="theme-toggle-fixed"
         id="themeToggle"
