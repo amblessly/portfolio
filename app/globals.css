@@ -223,8 +223,8 @@ body::before {
 .bento-tile-narrow { grid-area: about; }
 .bento-tile-experience { grid-area: experience; }
 .bento-tile-work { grid-area: projects; }
-.bento-tile-gallery { grid-area: certs; }
-.bento-tile-skills { grid-area: skills; }
+.bento-tile-gallery { grid-area: certs; min-height: 0; }
+.bento-tile-skills { grid-area: skills; min-height: 0; }
 
 .bento-col {
   display: flex;
@@ -2148,6 +2148,9 @@ body::before {
   .coverflow-hidden-right {
     transform: translateX(230px);
   }
+  .gallery-thumb {
+    height: 100px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -2247,6 +2250,9 @@ body::before {
   }
   .bento-tile-gallery {
     padding: 0.75rem;
+  }
+  .gallery-thumb {
+    height: 90px;
   }
 }
 
