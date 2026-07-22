@@ -212,10 +212,10 @@ body::before {
   width: 100%;
   max-width: 1150px;
   display: grid;
-  grid-template-columns: 2fr 2fr 2fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-areas:
-    "about experience skills"
-    "projects projects certs";
+    "about about experience experience"
+    "projects projects certs skills";
   gap: 1.25rem;
   margin: 0 auto;
 }
