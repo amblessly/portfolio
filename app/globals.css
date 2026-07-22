@@ -277,7 +277,7 @@ body::before {
   color: var(--text);
 }
 
-/* ── Gallery (2-up, fixed scale, prev/next) ──────────────────────── */
+/* ── Gallery (single image, full-width, prev/next) ──────────────────────── */
 .gallery-btn-wrap {
   display: flex;
   flex-direction: column;
@@ -287,21 +287,15 @@ body::before {
   gap: .6rem;
 }
 
-.gallery-pair {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: .5rem;
+.gallery-single {
   width: 100%;
-}
-
-.gallery-thumb {
   border-radius: var(--radius-lg);
   overflow: hidden;
   background: var(--bg3);
   border: 1px solid var(--border);
 }
 
-.gallery-thumb img {
+.gallery-single img {
   display: block;
   width: 100%;
   height: auto;

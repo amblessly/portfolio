@@ -110,30 +110,22 @@ function Coverflow({ projects }: { projects: Project[] }) {
 }
 
 function Gallery({ images }: { images: string[] }) {
-  const [page, setPage] = useState(0);
-  const perPage = 2;
-  const totalPages = Math.ceil(images.length / perPage);
+  const [index, setIndex] = useState(0);
+  const n = images.length;
 
-  const prev = () => setPage((p) => (p - 1 + totalPages) % totalPages);
-  const next = () => setPage((p) => (p + 1) % totalPages);
-
-  const start = page * perPage;
-  const visible = images.slice(start, start + perPage);
+  const prev = () => setIndex((i) => (i - 1 + n) % n);
+  const next = () => setIndex((i) => (i + 1) % n);
 
   return (
     <div className="gallery-btn-wrap">
-      <div className="gallery-pair">
-        {visible.map((src, i) => (
-          <div className="gallery-thumb" key={start + i}>
-            <img src={src} alt="" draggable={false} loading="lazy" />
-          </div>
-        ))}
+      <div className="gallery-single">
+        <img src={images[index]} alt="" draggable={false} loading="lazy" />
       </div>
       <div className="gallery-nav">
         <button className="gallery-nav-btn" onClick={prev} aria-label="Previous">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="15 18 9 12 15 6" /></svg>
         </button>
-        <span className="gallery-counter mono">{page + 1} / {totalPages}</span>
+        <span className="gallery-counter mono">{index + 1} / {n}</span>
         <button className="gallery-nav-btn" onClick={next} aria-label="Next">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="9 18 15 12 9 6" /></svg>
         </button>
