@@ -1662,7 +1662,9 @@ body::before {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(0,0,0,.7);
+  background: rgba(0,0,0,.6);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   opacity: 0;
   pointer-events: none;
   transition: opacity .3s var(--ease);
@@ -1728,6 +1730,49 @@ body::before {
   object-fit: cover;
 }
 
+.modal-img-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,.5);
+  border: none;
+  border-radius: 50%;
+  color: #fff;
+  cursor: pointer;
+  transition: background .2s;
+  z-index: 5;
+}
+.modal-img-nav:hover { background: rgba(0,0,0,.8); }
+.modal-img-prev { left: .75rem; }
+.modal-img-next { right: .75rem; }
+
+.modal-dots {
+  position: absolute;
+  bottom: .75rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: .4rem;
+  z-index: 5;
+}
+.modal-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.4);
+  cursor: pointer;
+  transition: background .2s, transform .2s;
+}
+.modal-dot.active {
+  background: #fff;
+  transform: scale(1.2);
+}
+
 .modal-info {
   padding: 1.5rem;
 }
@@ -1741,6 +1786,21 @@ body::before {
   font-size: .9rem;
   color: var(--text-2);
   line-height: 1.7;
+  margin-bottom: .75rem;
+}
+.modal-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .35rem;
+}
+.modal-tech-chip {
+  font-family: var(--font-mono);
+  font-size: .7rem;
+  color: var(--accent);
+  background: var(--glow);
+  border: 1px solid var(--border-h);
+  padding: .2rem .6rem;
+  border-radius: 99px;
 }
 
 /* modal scrollbar */
@@ -2250,6 +2310,14 @@ body::before {
   .bento-tile-gallery {
     padding: 0.75rem;
   }
+  .project-modal-overlay { padding: .5rem; }
+  .project-modal { max-height: 90vh; border-radius: var(--radius); }
+  .modal-info { padding: .75rem; }
+  .modal-title { font-size: 1.1rem; }
+  .modal-desc { font-size: .78rem; }
+  .modal-img-nav { width: 30px; height: 30px; }
+  .modal-img-prev { left: .5rem; }
+  .modal-img-next { right: .5rem; }
 }
 
 /* ═══════════════════════════════════════════════════════════════════

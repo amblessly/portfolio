@@ -19,9 +19,30 @@ const cards = [
     title: "projects",
     desc: "Things I've been working on",
     projects: [
-      { name: "SnapCrate", tech: "HTML · CSS · JavaScript", image: "", pos: "left" as const },
-      { name: "Maren Restaurant", tech: "HTML · CSS · JavaScript", image: "", pos: "center" as const },
-      { name: "SkyCast Weather App", tech: "JS · Open-Meteo API · Leaflet.js", image: "", pos: "right" as const },
+      {
+        name: "SnapCrate",
+        tech: "HTML · CSS · JavaScript",
+        image: "",
+        desc: "A responsive web application built with HTML, CSS, and JavaScript.",
+        images: ["/images/projects/snapcrate1.png", "/images/projects/snapcrate2.png"],
+        pos: "left" as const,
+      },
+      {
+        name: "Maren Restaurant",
+        tech: "HTML · CSS · JavaScript",
+        image: "",
+        desc: "A responsive restaurant website featuring menu presentation, business information, and a modern interface optimized for desktop and mobile devices.",
+        images: ["/images/projects/maren1.png", "/images/projects/maren2.png"],
+        pos: "center" as const,
+      },
+      {
+        name: "SkyCast Weather App",
+        tech: "JS · Open-Meteo API · Leaflet.js",
+        image: "",
+        desc: "A feature-rich weather application designed to deliver real-time weather updates, 24-hour forecasts, air quality monitoring, and interactive map visualization with a sleek and responsive user experience.",
+        images: ["/images/projects/skycast1.png", "/images/projects/skycast2.png"],
+        pos: "right" as const,
+      },
     ],
   },
   {
@@ -44,15 +65,83 @@ const cards = [
   },
 ];
 
-type Project = { name: string; tech: string; image: string; pos: Pos };
+type Project = {
+  name: string;
+  tech: string;
+  image: string;
+  desc: string;
+  images: string[];
+  pos: Pos;
+};
 
 type Pos = "center" | "left" | "right" | "hidden-left" | "hidden-right";
+
+function ProjectModal({ project, onClose }: { project: Project; onClose: () => void }) {
+  const [imgIdx, setImgIdx] = useState(0);
+  const images = project.images.filter(Boolean);
+
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+      if (e.key === "ArrowRight") setImgIdx((p) => (p + 1) % images.length);
+      if (e.key === "ArrowLeft") setImgIdx((p) => (p - 1 + images.length) % images.length);
+    };
+    document.addEventListener("keydown", onKey);
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.body.style.overflow = "";
+    };
+  }, [onClose, images.length]);
+
+  if (images.length === 0) return null;
+
+  return (
+    <div className="project-modal-overlay open" onClick={onClose}>
+      <div className="project-modal" onClick={(e) => e.stopPropagation()}>
+        <button className="modal-close" onClick={onClose} aria-label="Close">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" /></svg>
+        </button>
+        <div className="modal-body">
+          <div className="modal-image-wrap">
+            <img className="modal-image" src={images[imgIdx]} alt={project.name} />
+            {images.length > 1 && (
+              <>
+                <button className="modal-img-nav modal-img-prev" onClick={() => setImgIdx((p) => (p - 1 + images.length) % images.length)} aria-label="Previous image">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="15 18 9 12 15 6" /></svg>
+                </button>
+                <button className="modal-img-nav modal-img-next" onClick={() => setImgIdx((p) => (p + 1) % images.length)} aria-label="Next image">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="9 18 15 12 9 6" /></svg>
+                </button>
+                <div className="modal-dots">
+                  {images.map((_, i) => (
+                    <span key={i} className={`modal-dot ${i === imgIdx ? "active" : ""}`} onClick={() => setImgIdx(i)} />
+                  ))}
+                </div>
+              </>
+            )}
+          </div>
+          <div className="modal-info">
+            <h3 className="modal-title">{project.name}</h3>
+            <p className="modal-desc">{project.desc}</p>
+            <div className="modal-tech">
+              {project.tech.split(" · ").map((t) => (
+                <span key={t} className="modal-tech-chip">{t}</span>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 function Coverflow({ projects }: { projects: Project[] }) {
   const [center, setCenter] = useState(() => {
     const idx = projects.findIndex((p) => p.pos === "center");
     return idx >= 0 ? idx : 0;
   });
+  const [modalProject, setModalProject] = useState<Project | null>(null);
   const n = projects.length;
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
@@ -82,29 +171,38 @@ function Coverflow({ projects }: { projects: Project[] }) {
     timerRef.current = setInterval(goToNext, 3000);
   };
 
+  const handleCenterClick = () => {
+    if (timerRef.current) clearInterval(timerRef.current);
+    setModalProject(projects[center]);
+  };
+
   return (
-    <div className="coverflow">
-      {projects.map((p, i) => {
-        const pos = positionOf(i);
-        const clickable = pos === "left" || pos === "right" || pos === "center";
-        return (
-          <div
-            className={`coverflow-card coverflow-${pos}`}
-            key={p.name}
-            onClick={() => clickable && handleCardClick(i)}
-            role="button"
-            tabIndex={0}
-          >
-            <div className="coverflow-inner">
-              <div className="coverflow-image">
-                <img src={p.image} alt={p.name} loading="lazy" />
+    <>
+      <div className="coverflow">
+        {projects.map((p, i) => {
+          const pos = positionOf(i);
+          const clickable = pos === "left" || pos === "right" || pos === "center";
+          const isCenter = pos === "center";
+          return (
+            <div
+              className={`coverflow-card coverflow-${pos}`}
+              key={p.name}
+              onClick={() => isCenter ? handleCenterClick() : clickable && handleCardClick(i)}
+              role="button"
+              tabIndex={0}
+            >
+              <div className="coverflow-inner">
+                <div className="coverflow-image">
+                  <img src={p.image} alt={p.name} loading="lazy" />
+                </div>
+                <span className="coverflow-name">{p.name}</span>
               </div>
-              <span className="coverflow-name">{p.name}</span>
             </div>
-          </div>
-        );
-      })}
-    </div>
+          );
+        })}
+      </div>
+      {modalProject && <ProjectModal project={modalProject} onClose={() => setModalProject(null)} />}
+    </>
   );
 }
 
