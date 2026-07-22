@@ -114,7 +114,7 @@ function Gallery({ images }: { images: string[] }) {
   const [imgWidths, setImgWidths] = useState<Record<number, number>>({});
   const perPage = 2;
   const totalPages = Math.ceil(images.length / perPage);
-  const imgHeight = 80;
+  const imgHeight = 100;
 
   const prev = () => setPage((p) => (p - 1 + totalPages) % totalPages);
   const next = () => setPage((p) => (p + 1) % totalPages);
@@ -140,7 +140,7 @@ function Gallery({ images }: { images: string[] }) {
       <div className="gallery-pair">
         {visible.map((src, i) => {
           const idx = start + i;
-          const w = imgWidths[idx] || 120;
+          const w = imgWidths[idx] || 140;
           return (
             <div className="gallery-thumb" key={idx} style={{ width: w, height: imgHeight }}>
               <img src={src} alt="" draggable={false} loading="lazy" />
