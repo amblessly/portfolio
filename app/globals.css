@@ -212,22 +212,19 @@ body::before {
   width: 100%;
   max-width: 1150px;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: auto auto auto;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-areas:
-    "about experience experience"
-    "projects certs skills"
-    "projects goals goals";
+    "about about experience experience"
+    "projects projects certs skills";
   gap: 1.25rem;
   margin: 0 auto;
 }
 
 .bento-tile-narrow { grid-area: about; }
 .bento-tile-experience { grid-area: experience; }
-.bento-tile-work { grid-area: projects; grid-row: span 2; }
+.bento-tile-work { grid-area: projects; }
 .bento-tile-gallery { grid-area: certs; }
 .bento-tile-skills { grid-area: skills; }
-.bento-tile-goals { grid-area: goals; }
 
 .bento-col {
   display: flex;
@@ -1998,8 +1995,7 @@ body::before {
   .bento-tile-experience,
   .bento-tile-work,
   .bento-tile-gallery,
-  .bento-tile-skills,
-  .bento-tile-goals {
+  .bento-tile-skills {
     grid-column: auto;
     grid-row: auto;
   }
