@@ -111,9 +111,22 @@ function Coverflow({ projects }: { projects: Project[] }) {
 function Gallery({ images }: { images: string[] }) {
   const [page, setPage] = useState(0);
   const [imgWidths, setImgWidths] = useState<Record<number, number>>({});
+  const [imgHeight, setImgHeight] = useState(90);
   const perPage = 2;
   const totalPages = Math.ceil(images.length / perPage);
-  const imgHeight = 80;
+
+  useEffect(() => {
+    const getHeight = () => {
+      const w = window.innerWidth;
+      if (w <= 480) return 120;
+      if (w <= 640) return 110;
+      return 90;
+    };
+    setImgHeight(getHeight());
+    const onResize = () => setImgHeight(getHeight());
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, []);
 
   const prev = () => setPage((p) => (p - 1 + totalPages) % totalPages);
   const next = () => setPage((p) => (p + 1) % totalPages);
@@ -132,7 +145,7 @@ function Gallery({ images }: { images: string[] }) {
       };
       img.src = src;
     });
-  }, [images]);
+  }, [images, imgHeight]);
 
   return (
     <div className="gallery-btn-wrap">
