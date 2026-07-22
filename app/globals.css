@@ -212,18 +212,17 @@ body::before {
   width: 100%;
   max-width: 1150px;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 2fr 2fr 2fr;
   grid-template-areas:
-    "about experience"
-    "projects gallery"
-    "certs skills";
+    "about experience skills"
+    "projects projects certs";
   gap: 1.25rem;
   margin: 0 auto;
 }
 
 .bento-tile-narrow { grid-area: about; }
 .bento-tile-experience { grid-area: experience; }
-.bento-tile-work { grid-area: projects; grid-row: span 2; }
+.bento-tile-work { grid-area: projects; }
 .bento-tile-gallery { grid-area: certs; }
 .bento-tile-skills { grid-area: skills; }
 
