@@ -167,65 +167,62 @@ function Gallery({ images }: { images: string[] }) {
 export default function BentoGrid() {
   return (
     <section className="bento-section">
-<div className="bento-grid">
-        <div className="bento-col">
-          <div className="bento-card bento-tile reveal bento-tile-narrow" key="01">
-            <div className="section-label">
-              <span className="mono label-num">01.</span>
-              <span>about me</span>
-              <div className="label-line"></div>
-            </div>
-            <p className="bento-tile-desc">{cards[0].desc}</p>
+      <div className="bento-grid">
+        <div className="bento-card bento-tile reveal bento-tile-narrow" key="01">
+          <div className="section-label">
+            <span className="mono label-num">01.</span>
+            <span>about me</span>
+            <div className="label-line"></div>
           </div>
-          <div className="bento-card bento-tile reveal bento-tile-work" key="03">
-            <div className="section-label">
-              <span className="mono label-num">03.</span>
-              <span>{cards[2].title}</span>
-              <div className="label-line"></div>
-            </div>
-            <p className="bento-tile-desc">{cards[2].desc}</p>
-            <Coverflow projects={cards[2].projects!} />
-          </div>
+          <p className="bento-tile-desc">{cards[0].desc}</p>
         </div>
 
-        <div className="bento-col">
-          <div className="bento-card bento-tile reveal bento-tile-experience" key="02">
-            <div className="section-label">
-              <span className="mono label-num">02.</span>
-              <span>experience</span>
-              <div className="label-line"></div>
-            </div>
-            <p className="bento-tile-desc">{cards[1].desc}</p>
+        <div className="bento-card bento-tile reveal bento-tile-experience" key="02">
+          <div className="section-label">
+            <span className="mono label-num">02.</span>
+            <span>experience</span>
+            <div className="label-line"></div>
           </div>
-          <div className="bento-row">
-            <div className="bento-card bento-tile reveal bento-tile-gallery" key="04">
-              <div className="section-label">
-                <span className="mono label-num">04.</span>
-                <span>{cards[3].title}</span>
-                <div className="label-line"></div>
-              </div>
-              {cards[3].desc && <p className="bento-tile-desc">{cards[3].desc}</p>}
-              <Gallery images={cards[3].gallery!} />
-            </div>
+          <p className="bento-tile-desc">{cards[1].desc}</p>
+        </div>
 
-            <div className="bento-card bento-tile reveal" key="05">
-              <div className="section-label">
-                <span className="mono label-num">05.</span>
-                <span>{cards[4].title}</span>
-                <div className="label-line"></div>
-              </div>
-              <p className="bento-tile-desc">{cards[4].desc}</p>
-              <Gallery images={cards[4].gallery!} />
-            </div>
+        <div className="bento-card bento-tile reveal bento-tile-work" key="03">
+          <div className="section-label">
+            <span className="mono label-num">03.</span>
+            <span>{cards[2].title}</span>
+            <div className="label-line"></div>
           </div>
-          <div className="bento-card bento-tile reveal" key="06">
-            <div className="section-label">
-              <span className="mono label-num">06.</span>
-              <span>{cards[5].title}</span>
-              <div className="label-line"></div>
-            </div>
-            <p className="bento-tile-desc">{cards[5].desc}</p>
+          <p className="bento-tile-desc">{cards[2].desc}</p>
+          <Coverflow projects={cards[2].projects!} />
+        </div>
+
+        <div className="bento-card bento-tile reveal bento-tile-gallery" key="04">
+          <div className="section-label">
+            <span className="mono label-num">04.</span>
+            <span>{cards[3].title}</span>
+            <div className="label-line"></div>
           </div>
+          {cards[3].desc && <p className="bento-tile-desc">{cards[3].desc}</p>}
+          <Gallery images={cards[3].gallery!} />
+        </div>
+
+        <div className="bento-card bento-tile reveal bento-tile-cert" key="05">
+          <div className="section-label">
+            <span className="mono label-num">05.</span>
+            <span>{cards[4].title}</span>
+            <div className="label-line"></div>
+          </div>
+          <p className="bento-tile-desc">{cards[4].desc}</p>
+          <Gallery images={cards[4].gallery!} />
+        </div>
+
+        <div className="bento-card bento-tile reveal bento-tile-skills" key="06">
+          <div className="section-label">
+            <span className="mono label-num">06.</span>
+            <span>{cards[5].title}</span>
+            <div className="label-line"></div>
+          </div>
+          <p className="bento-tile-desc">{cards[5].desc}</p>
         </div>
       </div>
     </section>

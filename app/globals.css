@@ -213,9 +213,21 @@ body::before {
   max-width: 1150px;
   display: grid;
   grid-template-columns: 1fr 1fr;
+  grid-template-areas:
+    "about experience"
+    "projects gallery"
+    "projects certs"
+    "skills skills";
   gap: 1.25rem;
   margin: 0 auto;
 }
+
+.bento-tile-narrow { grid-area: about; }
+.bento-tile-experience { grid-area: experience; }
+.bento-tile-work { grid-area: projects; }
+.bento-tile-gallery { grid-area: gallery; }
+.bento-tile-cert { grid-area: certs; }
+.bento-tile-skills { grid-area: skills; }
 
 .bento-col {
   display: flex;
@@ -1945,14 +1957,18 @@ body::before {
 }
 
 @media (max-width: 860px) {
-  .bento {
-    grid-template-columns: 1fr;
-  }
   .bento-grid {
     grid-template-columns: 1fr;
+    grid-template-areas: none;
   }
-  .bento-row {
-    grid-template-columns: 1fr;
+  .bento-tile-narrow,
+  .bento-tile-experience,
+  .bento-tile-work,
+  .bento-tile-gallery,
+  .bento-tile-cert,
+  .bento-tile-skills {
+    grid-column: auto;
+    grid-row: auto;
   }
   .bento-section {
     padding: 2rem 1rem 1rem;
@@ -1960,15 +1976,6 @@ body::before {
   .bento-tile,
   .bento-card {
     background: var(--bg2);
-    min-height: auto;
-  }
-  .bento-tile-narrow {
-    min-height: auto;
-  }
-  .bento-tile-work {
-    min-height: auto;
-  }
-  .bento-tile-experience {
     min-height: auto;
   }
   .contact-form-wrap {
