@@ -19,9 +19,9 @@ const cards = [
     title: "projects",
     desc: "Things I've been working on",
     projects: [
-      { name: "SnapCrate", tech: "HTML · CSS · JavaScript", image: "/images/projects/snapcrate.png", pos: "left" as const },
-      { name: "Maren Restaurant", tech: "HTML · CSS · JavaScript", image: "/images/projects/snapcrate.png", pos: "center" as const },
-      { name: "SkyCast Weather App", tech: "JS · Open-Meteo API · Leaflet.js", image: "/images/projects/snapcrate.png", pos: "right" as const },
+      { name: "SnapCrate", tech: "HTML · CSS · JavaScript", image: "", pos: "left" as const },
+      { name: "Maren Restaurant", tech: "HTML · CSS · JavaScript", image: "", pos: "center" as const },
+      { name: "SkyCast Weather App", tech: "JS · Open-Meteo API · Leaflet.js", image: "", pos: "right" as const },
     ],
   },
   {
@@ -29,7 +29,6 @@ const cards = [
     title: "certificates",
     desc: "",
     gallery: [
-      "/images/projects/snapcrate.png",
       "/images/certificates/Web Development Fundamentals.png",
       "/images/certificates/Getting Started with AWS Cloud Essentials.png",
       "/images/certificates/cpp-essentials-1.png",
