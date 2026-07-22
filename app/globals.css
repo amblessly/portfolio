@@ -216,15 +216,15 @@ body::before {
   grid-template-areas:
     "about experience"
     "projects gallery"
-    "projects skills";
+    "certs skills";
   gap: 1.25rem;
   margin: 0 auto;
 }
 
 .bento-tile-narrow { grid-area: about; }
 .bento-tile-experience { grid-area: experience; }
-.bento-tile-work { grid-area: projects; }
-.bento-tile-gallery { grid-area: gallery; }
+.bento-tile-work { grid-area: projects; grid-row: span 2; }
+.bento-tile-gallery { grid-area: certs; }
 .bento-tile-skills { grid-area: skills; }
 
 .bento-col {
