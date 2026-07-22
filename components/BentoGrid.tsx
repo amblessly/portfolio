@@ -111,59 +111,33 @@ function Coverflow({ projects }: { projects: Project[] }) {
 }
 
 function Gallery({ images }: { images: string[] }) {
-  const [index, setIndex] = useState(0);
-  const [dragX, setDragX] = useState(0);
-  const [dragY, setDragY] = useState(0);
-  const [dragging, setDragging] = useState(false);
-  const n = images.length;
+  const [page, setPage] = useState(0);
+  const perPage = 2;
+  const totalPages = Math.ceil(images.length / perPage);
 
-  const goTo = (next: number) => setIndex(((next % n) + n) % n);
-  const next = () => goTo(index + 1);
-  const prev = () => goTo(index - 1);
+  const prev = () => setPage((p) => (p - 1 + totalPages) % totalPages);
+  const next = () => setPage((p) => (p + 1) % totalPages);
 
-  const onPointerDown = (e: React.PointerEvent) => {
-    setDragging(true);
-    (e.currentTarget as HTMLElement).setPointerCapture(e.pointerId);
-  };
-  const onPointerMove = (e: React.PointerEvent) => {
-    if (!dragging) return;
-    const box = e.currentTarget as HTMLElement;
-    const rect = box.getBoundingClientRect();
-    setDragX(e.clientX - rect.left - rect.width / 2);
-    setDragY(e.clientY - rect.top - rect.height / 2);
-  };
-  const onPointerUp = () => {
-    if (!dragging) return;
-    setDragging(false);
-    const x = dragX;
-    const y = dragY;
-    setDragX(0);
-    setDragY(0);
-    const dist = Math.hypot(x, y);
-    if (dist < 20) return;
-    if (Math.abs(x) > Math.abs(y)) {
-      if (x < 0) next(); else prev();
-    } else {
-      if (y < 0) next(); else prev();
-    }
-  };
+  const start = page * perPage;
+  const visible = images.slice(start, start + perPage);
 
   return (
-    <div
-      className={`gallery${dragging ? " gallery-dragging" : ""}`}
-      onPointerDown={onPointerDown}
-      onPointerMove={onPointerMove}
-      onPointerUp={onPointerUp}
-      onPointerCancel={onPointerUp}
-    >
-      <div
-        className="gallery-frame"
-        style={{
-          transform: `translate(${dragX}px, ${dragY}px)`,
-          transition: dragging ? "none" : undefined,
-        }}
-      >
-        <img src={images[index]} alt="" draggable={false} loading="lazy" />
+    <div className="gallery-btn-wrap">
+      <div className="gallery-pair">
+        {visible.map((src, i) => (
+          <div className="gallery-thumb" key={start + i}>
+            <img src={src} alt="" draggable={false} loading="lazy" />
+          </div>
+        ))}
+      </div>
+      <div className="gallery-nav">
+        <button className="gallery-nav-btn" onClick={prev} aria-label="Previous">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="15 18 9 12 15 6" /></svg>
+        </button>
+        <span className="gallery-counter mono">{start + 1}–{Math.min(start + perPage, images.length)} / {images.length}</span>
+        <button className="gallery-nav-btn" onClick={next} aria-label="Next">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="9 18 15 12 9 6" /></svg>
+        </button>
       </div>
     </div>
   );

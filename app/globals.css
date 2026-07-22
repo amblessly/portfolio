@@ -277,35 +277,68 @@ body::before {
   color: var(--text);
 }
 
-/* ── Gallery (single image, swipe up) ───────────────────── */
-.gallery {
+/* ── Gallery (2-up, prev/next) ──────────────────────── */
+.gallery-btn-wrap {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
-  margin-top: 1.25rem;
-  user-select: none;
+  margin-top: 1rem;
+  gap: .6rem;
 }
 
-.gallery-frame {
-  width: auto;
-  height: auto;
-  border-radius: var(--radius-lg);
+.gallery-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: .5rem;
+  width: 100%;
+}
+
+.gallery-thumb {
+  border-radius: var(--radius);
   overflow: hidden;
   background: var(--bg3);
   border: 1px solid var(--border);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
-  cursor: grab;
-  touch-action: none;
-  transition: transform .45s cubic-bezier(.22, .61, .36, 1);
+  aspect-ratio: 4/3;
 }
-.gallery-dragging .gallery-frame { cursor: grabbing; }
 
-.gallery-frame img {
+.gallery-thumb img {
   display: block;
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
   pointer-events: none;
+}
+
+.gallery-nav {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+}
+
+.gallery-nav-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--bg3);
+  color: var(--text-2);
+  cursor: pointer;
+  transition: border-color .2s, color .2s, background .2s;
+}
+
+.gallery-nav-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--glow);
+}
+
+.gallery-counter {
+  font-size: .7rem;
+  color: var(--text-3);
 }
 
 .bento-tile-narrow {
@@ -2088,6 +2121,12 @@ body::before {
   .contact-form-wrap {
     background: var(--bg2);
   }
+  .bento-tile-work {
+    padding-bottom: calc(1.25rem + 15px);
+  }
+  .hero-terminal {
+    max-height: 380px;
+  }
   .coverflow {
     height: 110px;
   }
@@ -2110,12 +2149,8 @@ body::before {
   .coverflow-hidden-right {
     transform: translateX(230px);
   }
-  .gallery-frame {
-    max-width: 100%;
-  }
-  .gallery-frame img {
-    max-width: 100%;
-    height: auto;
+  .gallery-thumb {
+    aspect-ratio: 16/10;
   }
 }
 
@@ -2137,7 +2172,10 @@ body::before {
   .nf-art { font-size: .22rem; line-height: 1.05; }
   .nf-info { font-size: .5rem; }
   .terminal-code { padding: .5rem; font-size: .6rem; }
-  .hero-terminal { max-height: 280px; }
+  .hero-terminal { max-height: 340px; }
+  .bento-tile-work {
+    padding-bottom: calc(1rem + 15px);
+  }
   .section { padding: 2rem 0; }
   .section-title { font-size: 1.1rem; margin-bottom: 1rem; }
 
@@ -2211,12 +2249,8 @@ body::before {
   .coverflow-image {
     height: 55px;
   }
-  .gallery-frame {
-    max-width: 100%;
-  }
-  .gallery-frame img {
-    max-width: 100%;
-    height: auto;
+  .gallery-thumb {
+    aspect-ratio: 16/10;
   }
   .bento-tile-gallery {
     padding: 0.75rem;
