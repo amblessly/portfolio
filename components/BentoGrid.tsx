@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 
 const cards = [
   {
@@ -26,7 +26,7 @@ const cards = [
   },
   {
     num: "04",
-    title: "gallery",
+    title: "gallery/certificates",
     desc: "",
     gallery: [
       "/images/projects/snapcrate.png",
@@ -40,19 +40,6 @@ const cards = [
   },
   {
     num: "05",
-    title: "certificates",
-    desc: "",
-    gallery: [
-      "/images/certificates/Web Development Fundamentals.png",
-      "/images/certificates/Getting Started with AWS Cloud Essentials.png",
-      "/images/certificates/cpp-essentials-1.png",
-      "/images/certificates/Statement of Achievement.png",
-      "/images/certificates/Certificate Of Recognition.png",
-      "/images/certificates/Software Development with Amazon Q Developer.png",
-    ],
-  },
-  {
-    num: "06",
     title: "skills",
     desc: "JavaScript · TypeScript · React · Next.js · HTML · CSS · Java · MySQL · Git",
   },
@@ -68,6 +55,7 @@ function Coverflow({ projects }: { projects: Project[] }) {
     return idx >= 0 ? idx : 0;
   });
   const n = projects.length;
+  const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   const positionOf = (i: number): Pos => {
     const rel = (i - center + n) % n;
@@ -76,6 +64,23 @@ function Coverflow({ projects }: { projects: Project[] }) {
     if (rel === n - 1) return "left";
     if (rel < n / 2) return "hidden-right";
     return "hidden-left";
+  };
+
+  const goToNext = useCallback(() => {
+    setCenter((prev) => (prev + 1) % n);
+  }, [n]);
+
+  useEffect(() => {
+    timerRef.current = setInterval(goToNext, 3000);
+    return () => {
+      if (timerRef.current) clearInterval(timerRef.current);
+    };
+  }, [goToNext]);
+
+  const handleCardClick = (i: number) => {
+    if (timerRef.current) clearInterval(timerRef.current);
+    setCenter(i);
+    timerRef.current = setInterval(goToNext, 3000);
   };
 
   return (
@@ -87,7 +92,7 @@ function Coverflow({ projects }: { projects: Project[] }) {
           <div
             className={`coverflow-card coverflow-${pos}`}
             key={p.name}
-            onClick={() => clickable && setCenter(i)}
+            onClick={() => clickable && handleCardClick(i)}
             role="button"
             tabIndex={0}
           >
@@ -206,23 +211,13 @@ export default function BentoGrid() {
           <Gallery images={cards[3].gallery!} />
         </div>
 
-        <div className="bento-card bento-tile reveal bento-tile-cert" key="05">
+        <div className="bento-card bento-tile reveal bento-tile-skills" key="05">
           <div className="section-label">
             <span className="mono label-num">05.</span>
             <span>{cards[4].title}</span>
             <div className="label-line"></div>
           </div>
           <p className="bento-tile-desc">{cards[4].desc}</p>
-          <Gallery images={cards[4].gallery!} />
-        </div>
-
-        <div className="bento-card bento-tile reveal bento-tile-skills" key="06">
-          <div className="section-label">
-            <span className="mono label-num">06.</span>
-            <span>{cards[5].title}</span>
-            <div className="label-line"></div>
-          </div>
-          <p className="bento-tile-desc">{cards[5].desc}</p>
         </div>
       </div>
     </section>
