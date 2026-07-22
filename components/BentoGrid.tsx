@@ -42,6 +42,11 @@ const cards = [
     title: "skills",
     desc: "JavaScript · TypeScript · React · Next.js · HTML · CSS · Java · MySQL · Git",
   },
+  {
+    num: "06",
+    title: "goals",
+    desc: "Always learning, always building. Open to opportunities and collaborations.",
+  },
 ];
 
 type Project = { name: string; tech: string; image: string; pos: Pos };
@@ -209,6 +214,15 @@ export default function BentoGrid() {
             <div className="label-line"></div>
           </div>
           <p className="bento-tile-desc">{cards[4].desc}</p>
+        </div>
+
+        <div className="bento-card bento-tile reveal bento-tile-goals" key="06">
+          <div className="section-label">
+            <span className="mono label-num">06.</span>
+            <span>{cards[5].title}</span>
+            <div className="label-line"></div>
+          </div>
+          <p className="bento-tile-desc">{cards[5].desc}</p>
         </div>
       </div>
     </section>
