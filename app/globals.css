@@ -299,7 +299,7 @@ body::before {
   overflow: hidden;
   background: var(--bg3);
   border: 1px solid var(--border);
-  height: 120px;
+  height: 80px;
 }
 
 .gallery-thumb img {
@@ -2150,7 +2150,7 @@ body::before {
     transform: translateX(230px);
   }
   .gallery-thumb {
-    height: 100px;
+    height: 70px;
   }
 }
 
@@ -2253,7 +2253,7 @@ body::before {
     padding: 0.75rem;
   }
   .gallery-thumb {
-    height: 90px;
+    height: 60px;
   }
 }
 
