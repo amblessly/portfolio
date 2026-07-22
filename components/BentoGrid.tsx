@@ -111,16 +111,16 @@ function Coverflow({ projects }: { projects: Project[] }) {
 function Gallery({ images }: { images: string[] }) {
   const [page, setPage] = useState(0);
   const [imgWidths, setImgWidths] = useState<Record<number, number>>({});
-  const [imgHeight, setImgHeight] = useState(90);
+  const [imgHeight, setImgHeight] = useState(100);
   const perPage = 2;
   const totalPages = Math.ceil(images.length / perPage);
 
   useEffect(() => {
     const getHeight = () => {
       const w = window.innerWidth;
-      if (w <= 480) return 120;
-      if (w <= 640) return 110;
-      return 90;
+      if (w <= 480) return 150;
+      if (w <= 640) return 130;
+      return 100;
     };
     setImgHeight(getHeight());
     const onResize = () => setImgHeight(getHeight());
