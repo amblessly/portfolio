@@ -110,7 +110,7 @@ function Coverflow({ projects }: { projects: Project[] }) {
 
 function Gallery({ images }: { images: string[] }) {
   const [page, setPage] = useState(0);
-  const [imgWidths, setImgWidths] = useState<Record<number, number>>({});
+  const [imgAspectRatios, setImgAspectRatios] = useState<Record<number, number>>({});
   const [imgHeight, setImgHeight] = useState(100);
   const perPage = 2;
   const totalPages = Math.ceil(images.length / perPage);
@@ -128,31 +128,33 @@ function Gallery({ images }: { images: string[] }) {
     return () => window.removeEventListener("resize", onResize);
   }, []);
 
+  useEffect(() => {
+    images.forEach((src, i) => {
+      if (imgAspectRatios[i] !== undefined) return;
+      const img = new Image();
+      img.onload = () => {
+        setImgAspectRatios((prev) => ({
+          ...prev,
+          [i]: img.naturalWidth / img.naturalHeight,
+        }));
+      };
+      img.src = src;
+    });
+  }, [images]);
+
   const prev = () => setPage((p) => (p - 1 + totalPages) % totalPages);
   const next = () => setPage((p) => (p + 1) % totalPages);
 
   const start = page * perPage;
   const visible = images.slice(start, start + perPage);
 
-  useEffect(() => {
-    images.forEach((src, i) => {
-      const img = new Image();
-      img.onload = () => {
-        setImgWidths((prev) => ({
-          ...prev,
-          [i]: Math.round((img.naturalWidth / img.naturalHeight) * imgHeight),
-        }));
-      };
-      img.src = src;
-    });
-  }, [images, imgHeight]);
-
   return (
     <div className="gallery-btn-wrap">
       <div className="gallery-pair">
         {visible.map((src, i) => {
           const idx = start + i;
-          const w = imgWidths[idx] || 110;
+          const ratio = imgAspectRatios[idx];
+          const w = ratio ? Math.round(ratio * imgHeight) : 150;
           return (
             <div className="gallery-thumb" key={idx} style={{ width: w, height: imgHeight }}>
               <img src={src} alt="" draggable={false} loading="lazy" />
