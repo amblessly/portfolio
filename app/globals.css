@@ -299,7 +299,7 @@ body::before {
   overflow: hidden;
   background: var(--bg3);
   border: 1px solid var(--border);
-  aspect-ratio: 16 / 10;
+  flex-shrink: 0;
 }
 
 .gallery-thumb img {
