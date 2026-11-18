@@ -94,7 +94,16 @@ body {
 
 a { color: inherit; }
 
-svg.lucide { width: 1em; height: 1em; stroke-width: 1.75; }
+svg.lucide {
+  width: 1em;
+  height: 1em;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex: none;
+}
 .brand-icon { width: 1em; height: 1em; fill: currentColor; display: inline-block; vertical-align: -0.125em; flex: none; }
 
 .eyebrow {

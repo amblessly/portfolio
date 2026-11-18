@@ -25,6 +25,16 @@ const FALLBACK_REPOS = [
 
 const LIVE_REPO_DESCRIPTIONS = new Map(FALLBACK_REPOS.map((repo) => [repo.name, repo.description]));
 
+function createIcon(symbolId) {
+  const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+  svg.setAttribute('class', 'lucide');
+  svg.setAttribute('aria-hidden', 'true');
+  const use = document.createElementNS('http://www.w3.org/2000/svg', 'use');
+  use.setAttribute('href', `#${symbolId}`);
+  svg.appendChild(use);
+  return svg;
+}
+
 const repoState = {
   all: [],
   query: '',
@@ -56,12 +66,6 @@ function cacheDom() {
     following: document.querySelector('[data-stat="following"]'),
     stars: document.querySelector('[data-stat="stars"]')
   };
-}
-
-function refreshIcons() {
-  if (window.lucide && typeof window.lucide.createIcons === 'function') {
-    window.lucide.createIcons();
-  }
 }
 
 function setTheme(theme) {
@@ -271,10 +275,7 @@ function createRepoCard(repo) {
   link.rel = 'noopener noreferrer';
   link.textContent = repo.name;
   link.setAttribute('aria-label', `${repo.name} on GitHub (opens in new tab)`);
-  const arrow = document.createElement('i');
-  arrow.setAttribute('data-lucide', 'arrow-up-right');
-  arrow.setAttribute('aria-hidden', 'true');
-  link.appendChild(arrow);
+  link.appendChild(createIcon('i-arrow-up-right'));
   title.appendChild(link);
 
   const description = document.createElement('p');
@@ -286,13 +287,13 @@ function createRepoCard(repo) {
   if (repo.stargazers_count > 0) {
     const stars = document.createElement('span');
     stars.className = 'repo-card__stars';
-    stars.innerHTML = '<i data-lucide="star" aria-hidden="true"></i>';
+    stars.appendChild(createIcon('i-star'));
     stars.appendChild(document.createTextNode(String(repo.stargazers_count)));
     foot.appendChild(stars);
   }
   if (repo.forks_count > 0) {
     const forks = document.createElement('span');
-    forks.innerHTML = '<i data-lucide="git-fork" aria-hidden="true"></i>';
+    forks.appendChild(createIcon('i-git-fork'));
     forks.appendChild(document.createTextNode(String(repo.forks_count)));
     foot.appendChild(forks);
   }
@@ -318,7 +319,6 @@ function renderRepoGrid() {
   filtered.forEach((repo) => dom.repoGrid.appendChild(createRepoCard(repo)));
   if (dom.repoEmpty) dom.repoEmpty.hidden = filtered.length !== 0;
   if (dom.repoCount) dom.repoCount.textContent = String(filtered.length);
-  refreshIcons();
 }
 
 function wireRepoControls() {
@@ -433,6 +433,5 @@ document.addEventListener('DOMContentLoaded', () => {
       setTheme(next);
     });
   }
-  refreshIcons();
   loadGitHubData();
 });
